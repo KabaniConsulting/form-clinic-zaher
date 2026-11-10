@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>New Dental Art Zaher</title>
+<style>
+  :root{
+    --bg:#f6efe2; --card:#fffdf8; --ink:#2a2d1f; --muted:#6a6d58; --line:#e3d7c0;
+    --accent:#5b7b34; --accent-ink:#fff; --accent-soft:#e8efdb; --err:#b42318;
+    --orange:#c9601f; --sage:#7f9a6e;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#1a1d14; --card:#232718; --ink:#f1ecdf; --muted:#aeb095; --line:#3a4029;
+      --accent:#9bbd62; --accent-ink:#1a2208; --accent-soft:#2d3720; --err:#ff8a80;
+      --orange:#e8894a; --sage:#8fa97e; }
+  }
+  header{background:linear-gradient(135deg,var(--accent-soft),var(--bg));border-left:6px solid var(--orange);border-radius:14px;padding:22px 20px;margin-bottom:20px}
+  header h1{color:var(--accent)}
+  section{border-top:4px solid var(--sage)}
+  section:nth-of-type(even){border-top-color:var(--orange)}
+  section h2{color:var(--accent)}
+  button{background:var(--orange);color:#fff}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 16px 64px}
+  header h1{font-size:1.8rem;line-height:1.2;margin:0 0 8px}
+  header p{color:var(--muted);margin:0 0 24px}
+  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 20px;margin-bottom:18px}
+  section h2{font-size:1.1rem;margin:0 0 4px}
+  section .hint{color:var(--muted);font-size:.9rem;margin:0 0 16px}
+  .field{margin-bottom:20px}
+  .field:last-child{margin-bottom:0}
+  label.q,.q{display:block;font-weight:600;margin-bottom:8px}
+  .opt{font-weight:400;color:var(--muted);font-size:.85rem}
+  input[type=text],input[type=email],input[type=tel],input[type=date],input[type=url],textarea,select{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;
+    background:var(--bg);color:var(--ink);font:inherit}
+  textarea{min-height:90px;resize:vertical}
+  input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips label{position:relative;cursor:pointer}
+  .chips input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+  .chips span{display:inline-block;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:var(--bg);font-size:.95rem}
+  .chips input:checked + span{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+  .chips input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
+  .colors{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .color{display:flex;gap:8px;align-items:center}
+  .color input[type=color]{width:44px;height:44px;border:1px solid var(--line);border-radius:10px;padding:2px;background:var(--bg);cursor:pointer}
+  .color input[type=text]{min-width:0}
+  .color small{display:block;color:var(--muted);font-size:.75rem}
+  .radios label{display:block;padding:6px 0;cursor:pointer}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;margin-bottom:20px}
+  @media (max-width:560px){.row,.colors{grid-template-columns:1fr}}
+  button{background:var(--accent);color:var(--accent-ink);border:0;border-radius:12px;padding:14px 26px;font:inherit;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  .msg{margin-top:16px;padding:14px;border-radius:10px;display:none}
+  .msg.ok{display:block;background:var(--accent-soft)}
+  .msg.err{display:block;color:var(--err);border:1px solid var(--err)}
+  .hp{position:absolute;left:-9999px}
+  pre{white-space:pre-wrap;word-break:break-word;font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
+  input[type=time]{width:auto;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+  .dayrow{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px;background:var(--bg)}
+  .dayrow strong{display:block;color:var(--accent)}
+  .slot{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:6px}
+  button.link{background:none;color:var(--accent);padding:4px 0;font-weight:600;font-size:.9rem;border-radius:6px}
+  button.link.rm{color:var(--err)}
+  .langbox{margin-top:12px}
+  .langlist{max-height:220px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:var(--card);margin-top:4px}
+  .langlist button{display:block;width:100%;text-align:left;background:none;color:var(--ink);padding:9px 12px;border-radius:0;font-weight:400}
+  .langlist button:hover,.langlist button:focus{background:var(--accent-soft)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .tag{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:4px 6px 4px 12px;font-size:.9rem}
+  .tag button.link{color:inherit;padding:0 6px;font-size:1rem}
+  .other-text{margin-top:10px}
+  .req{color:var(--err);font-weight:700}
+  input.invalid{border-color:var(--err);outline:2px solid var(--err);outline-offset:1px}
+  .fielderr{color:var(--err);font-size:.85rem;margin-top:4px}
+  .field-invalid > .q{color:var(--err)}
+  .chips input:disabled + span{opacity:.4;cursor:not-allowed}
+  .chips label:has(input:disabled){cursor:not-allowed}
+  footer{color:var(--muted);font-size:.85rem;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>New Dental Art Zaher</h1>
+  <p>Ce court questionnaire nous aide à mieux comprendre vos besoins présents et futurs. Il prend environ 10 minutes. Toutes les questions sont obligatoires, sauf la 6.</p>
+</header>
+
+<form id="brief" novalidate>
+  <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+  <section>
+    <h2>1. Vous et votre cabinet</h2>
+    <div class="row">
+      <div class="field"><label class="q" for="firstname">Prénom</label>
+        <input type="text" id="firstname" name="prenom" autocomplete="given-name" required></div>
+      <div class="field"><label class="q" for="lastname">Nom</label>
+        <input type="text" id="lastname" name="nom" autocomplete="family-name" required></div>
+    </div>
+    <div class="row">
+      <div class="field"><label class="q" for="email">E-mail</label>
+        <input type="email" id="email" name="email" autocomplete="email" required></div>
+      <div class="field"><label class="q" for="phone">Téléphone</label>
+        <input type="tel" id="phone" name="telephone" autocomplete="tel" required></div>
+    </div>
+    <div class="field"><label class="q" for="team">Dentistes et membres de l'équipe à présenter</label>
+      <textarea id="team" name="equipe" placeholder="Noms et fonctions"></textarea></div>
+    <div class="field"><label class="q" for="address">Adresse du cabinet</label>
+      <textarea id="address" name="adresse" placeholder="Rue, numéro, code postal, ville"></textarea></div>
+    <div class="field"><span class="q">Jours d'ouverture <span class="opt">(cliquez sur les jours, puis réglez les horaires)</span></span>
+      <div class="chips" id="daychips"></div>
+      <div id="hours"></div></div>
+    <div class="field"><span class="q">Langues du site</span>
+      <div class="chips">
+        <label><input type="checkbox" name="langues" value="Français"><span>Français</span></label>
+        <label><input type="checkbox" name="langues" value="Anglais"><span>Anglais</span></label>
+        <label><input type="checkbox" name="langues" value="Autre" id="otherlang-cb"><span>Autre</span></label>
+      </div>
+      <div class="langbox" id="langbox" hidden>
+        <input type="text" id="langsearch" placeholder="Rechercher une langue…" autocomplete="off" aria-label="Rechercher une langue">
+        <div class="langlist" id="langlist" hidden></div>
+        <div class="tags" id="langtags"></div>
+        <input type="hidden" name="autres_langues" id="langvalue">
+        <p class="hint" style="margin:8px 0 0">Ajoutez autant de langues que vous le souhaitez, l'une après l'autre.</p>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>2. Objectifs</h2>
+    <div class="field"><span class="q">Objectif principal du site</span>
+      <div class="chips">
+        <label><input type="checkbox" name="objectifs" value="Informer les patients"><span>Informer les patients</span></label>
+        <label><input type="checkbox" name="objectifs" value="Inspirer confiance"><span>Inspirer confiance</span></label>
+        <label><input type="checkbox" name="objectifs" value="Recevoir des demandes de rendez-vous"><span>Recevoir des demandes de rendez-vous</span></label>
+        <label><input type="checkbox" name="objectifs" value="Recruter"><span>Recruter</span></label>
+      </div></div>
+    <div class="field"><span class="q">Qui sont vos patients idéaux&nbsp;? <span class="opt">(un ou plusieurs)</span></span>
+      <div class="chips">
+        <label><input type="checkbox" name="patients_ideaux" value="Notre patientèle actuelle"><span>Notre patientèle actuelle</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Nouveaux patients recommandés par notre patientèle actuelle"><span>Nouveaux patients recommandés par notre patientèle actuelle</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Familles"><span>Familles</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Enfants et adolescents"><span>Enfants et adolescents</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Expatriés et patients internationaux"><span>Expatriés et patients internationaux</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Patients en recherche de soins esthétiques"><span>Patients en recherche de soins esthétiques</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Patients nécessitant des soins complexes"><span>Patients nécessitant des soins complexes (implants, orthodontie)</span></label>
+        <label><input type="checkbox" name="patients_ideaux" value="Autre" class="other-toggle" data-target="patients-other"><span>Autre</span></label>
+      </div>
+      <input type="text" id="patients-other" name="patients_ideaux_autre" class="other-text" placeholder="Précisez…" aria-label="Autre type de patients" hidden></div>
+    <div class="field"><span class="q">Qu'est-ce qui distingue votre cabinet&nbsp;? <span class="opt">(un ou plusieurs)</span></span>
+      <div class="chips">
+        <label><input type="checkbox" name="differenciation" value="Accueil chaleureux et personnalisé"><span>Accueil chaleureux et personnalisé</span></label>
+        <label><input type="checkbox" name="differenciation" value="Technologies et équipements modernes"><span>Technologies et équipements modernes</span></label>
+        <label><input type="checkbox" name="differenciation" value="Spécialisations et expertise reconnue"><span>Spécialisations et expertise reconnue</span></label>
+        <label><input type="checkbox" name="differenciation" value="Disponibilité rapide, urgences comprises"><span>Disponibilité rapide, urgences comprises</span></label>
+        <label><input type="checkbox" name="differenciation" value="Soins sans douleur, prise en charge des patients anxieux"><span>Soins sans douleur, prise en charge des patients anxieux</span></label>
+        <label><input type="checkbox" name="differenciation" value="Équipe multilingue"><span>Équipe multilingue</span></label>
+        <label><input type="checkbox" name="differenciation" value="Autre" class="other-toggle" data-target="diff-other"><span>Autre</span></label>
+      </div>
+      <input type="text" id="diff-other" name="differenciation_autre" class="other-text" placeholder="Précisez…" aria-label="Autre élément distinctif" hidden></div>
+  </section>
+
+  <section>
+    <h2>3. Identité visuelle et style</h2>
+    <p class="hint">Pas encore d'identité visuelle&nbsp;? Dites-nous simplement ce qui vous plaît.</p>
+    <div class="field"><span class="q">Couleurs de votre marque <span class="opt">(proposées d'après l'identité actuelle du cabinet, modifiez-les si besoin)</span></span>
+      <div class="colors">
+        <div class="color"><input type="color" id="c1" value="#5b7b34" aria-label="Vert"><div><input type="text" id="c1t" value="#5B7B34" placeholder="#5B7B34" maxlength="7"><small>Vert</small></div></div>
+        <div class="color"><input type="color" id="c2" value="#c9601f" aria-label="Orange"><div><input type="text" id="c2t" value="#C9601F" placeholder="#C9601F" maxlength="7"><small>Orange</small></div></div>
+        <div class="color"><input type="color" id="c3" value="#f6efe2" aria-label="Beige"><div><input type="text" id="c3t" value="#F6EFE2" placeholder="#F6EFE2" maxlength="7"><small>Beige</small></div></div>
+      </div></div>
+    <div class="field"><label class="q" for="avoid">Couleurs à éviter <span class="opt">(facultatif)</span></label>
+      <input type="text" id="avoid" name="couleurs_a_eviter"></div>
+    <div class="field"><span class="q">Style souhaité <span class="opt">(un ou plusieurs)</span></span>
+      <div class="chips">
+        <label><input type="checkbox" name="style" value="Classique"><span>Classique</span></label>
+        <label><input type="checkbox" name="style" value="Moderne"><span>Moderne</span></label>
+        <label><input type="checkbox" name="style" value="Minimaliste"><span>Minimaliste</span></label>
+        <label><input type="checkbox" name="style" value="Chaleureux et convivial"><span>Chaleureux et convivial</span></label>
+        <label><input type="checkbox" name="style" value="Haut de gamme"><span>Haut de gamme</span></label>
+        <label><input type="checkbox" name="style" value="Dynamique"><span>Dynamique</span></label>
+      </div></div>
+    <div class="field"><label class="q" for="inspo">Sites web que vous aimez <span class="opt">(liens, tous secteurs)</span></label>
+      <textarea id="inspo" name="inspirations" placeholder="Lien, et ce que vous appréciez"></textarea></div>
+  </section>
+
+  <section>
+    <h2>4. Pages</h2>
+    <div class="field"><span class="q">Quelles pages souhaitez-vous&nbsp;?</span>
+      <div class="chips">
+        <label><input type="checkbox" name="pages" value="Accueil"><span>Accueil</span></label>
+        <label><input type="checkbox" name="pages" value="À propos et équipe"><span>À propos et équipe</span></label>
+        <label><input type="checkbox" name="pages" value="Prestations"><span>Prestations</span></label>
+        <label><input type="checkbox" name="pages" value="Prise de rendez-vous en ligne"><span>Prise de rendez-vous en ligne</span></label>
+        <label><input type="checkbox" name="pages" value="Contact"><span>Contact</span></label>
+        <label><input type="checkbox" name="pages" value="Tarifs"><span>Tarifs</span></label>
+        <label><input type="checkbox" name="pages" value="FAQ"><span>FAQ</span></label>
+        <label><input type="checkbox" name="pages" value="Informations patients"><span>Informations patients</span></label>
+        <label><input type="checkbox" name="pages" value="Urgences"><span>Urgences</span></label>
+        <label><input type="checkbox" name="pages" value="Galerie avant/après"><span>Avant/après</span></label>
+        <label><input type="checkbox" name="pages" value="Témoignages"><span>Témoignages</span></label>
+        <label><input type="checkbox" name="pages" value="Blog"><span>Blog</span></label>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>5. Prestations</h2>
+    <div class="field"><span class="q">Prestations proposées</span>
+      <div class="chips">
+        <label><input type="checkbox" name="prestations" value="Contrôles et détartrage"><span>Contrôles et détartrage</span></label>
+        <label><input type="checkbox" name="prestations" value="Blanchiment"><span>Blanchiment</span></label>
+        <label><input type="checkbox" name="prestations" value="Orthodontie"><span>Orthodontie</span></label>
+        <label><input type="checkbox" name="prestations" value="Implants"><span>Implants</span></label>
+        <label><input type="checkbox" name="prestations" value="Facettes et esthétique"><span>Facettes et esthétique</span></label>
+        <label><input type="checkbox" name="prestations" value="Dentisterie pour enfants"><span>Dentisterie pour enfants</span></label>
+        <label><input type="checkbox" name="prestations" value="Dévitalisation"><span>Dévitalisation</span></label>
+        <label><input type="checkbox" name="prestations" value="Soins des gencives"><span>Soins des gencives</span></label>
+        <label><input type="checkbox" name="prestations" value="Soins d'urgence"><span>Soins d'urgence</span></label>
+      </div></div>
+    <div class="field"><label class="q" for="otherserv">Autres prestations <span class="opt">(facultatif)</span></label>
+      <input type="text" id="otherserv" name="autres_prestations"></div>
+    <div class="field"><span class="q">Quelles 3 prestations mettre en avant&nbsp;? <span class="opt">(parmi celles que vous avez cochées ci-dessus)</span></span>
+      <div class="chips" id="topserv"></div>
+      <p class="hint" id="topserv-hint" style="margin:8px 0 0"></p></div>
+    <div class="field"><span class="q">Afficher les tarifs sur le site&nbsp;?</span>
+      <div class="radios">
+        <label><input type="radio" name="tarifs" value="Oui"> Oui</label>
+        <label><input type="radio" name="tarifs" value="Non"> Non</label>
+        <label><input type="radio" name="tarifs" value="Tarifs « à partir de » uniquement"> Tarifs « à partir de » uniquement</label>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>6. Fonctionnalités <span class="opt">(facultatif, à discuter ensemble)</span></h2>
+    <div class="field"><span class="q">Prise de rendez-vous <span class="opt">(un ou plusieurs)</span></span>
+      <div class="chips">
+        <label><input type="checkbox" name="rendez_vous" value="Nouvelle réservation en ligne"><span>Nouvelle réservation en ligne</span></label>
+        <label><input type="checkbox" name="rendez_vous" value="Connecter mon outil de réservation actuel"><span>Connecter mon outil de réservation actuel</span></label>
+        <label><input type="checkbox" name="rendez_vous" value="Formulaire de contact"><span>Formulaire de contact</span></label>
+      </div></div>
+    <div class="field"><span class="q">Les patients doivent-ils être recommandés avant de pouvoir réserver&nbsp;?</span>
+      <div class="radios">
+        <label><input type="radio" name="sur_recommandation" value="Oui"> Oui</label>
+        <label><input type="radio" name="sur_recommandation" value="Non"> Non</label>
+        <label><input type="radio" name="sur_recommandation" value="Pour certaines prestations uniquement"> Pour certaines prestations uniquement</label>
+      </div></div>
+    <div class="field" id="refhow" hidden><span class="q">Comment la recommandation doit-elle fonctionner&nbsp;?</span>
+      <div class="chips">
+        <label><input type="checkbox" name="mode_recommandation" value="Code de parrainage"><span>Code de parrainage</span></label>
+        <label><input type="checkbox" name="mode_recommandation" value="Nom du patient ou du médecin qui recommande"><span>Nom du patient ou du médecin qui recommande</span></label>
+        <label><input type="checkbox" name="mode_recommandation" value="Validation par le cabinet"><span>Validation par le cabinet</span></label>
+      </div></div>
+    <div class="field"><span class="q">Autres fonctionnalités</span>
+      <div class="chips">
+        <label><input type="checkbox" name="fonctionnalites" value="Bouton WhatsApp"><span>Bouton WhatsApp</span></label>
+        <label><input type="checkbox" name="fonctionnalites" value="Google Maps"><span>Google Maps</span></label>
+        <label><input type="checkbox" name="fonctionnalites" value="Avis Google"><span>Avis Google</span></label>
+        <label><input type="checkbox" name="fonctionnalites" value="Inscription à la newsletter"><span>Inscription à la newsletter</span></label>
+        <label><input type="checkbox" name="fonctionnalites" value="Formulaires patients à télécharger"><span>Formulaires patients à télécharger</span></label>
+        <label><input type="checkbox" name="fonctionnalites" value="Chat en direct"><span>Chat en direct</span></label>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>7. Prestations supplémentaires</h2>
+    <div class="field"><span class="q">Souhaiteriez-vous de nouvelles photos du cabinet et de l'équipe&nbsp;?</span>
+      <div class="radios">
+        <label><input type="radio" name="nouvelles_photos" value="Oui, une séance photo"> Oui, une séance photo</label>
+        <label><input type="radio" name="nouvelles_photos" value="J'ai déjà mes photos"> J'ai déjà mes photos</label>
+        <label><input type="radio" name="nouvelles_photos" value="J'ai des photos, mais j'aimerais aussi en avoir de nouvelles"> J'ai des photos, mais j'aimerais aussi en avoir de nouvelles</label>
+      </div></div>
+    <div class="field"><span class="q">Auriez-vous besoin d'un nouveau logo&nbsp;?</span>
+      <div class="radios">
+        <label><input type="radio" name="nouveau_logo" value="Oui"> Oui</label>
+        <label><input type="radio" name="nouveau_logo" value="Non"> Non</label>
+      </div></div>
+    <div class="field"><span class="q">Le référencement sur Google (SEO) est-il important pour vous&nbsp;?</span>
+      <div class="radios">
+        <label><input type="radio" name="seo_important" value="Oui, très important"> Oui, très important</label>
+        <label><input type="radio" name="seo_important" value="Un peu"> Un peu</label>
+        <label><input type="radio" name="seo_important" value="Non"> Non</label>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>8. Budget</h2>
+    <div class="field"><span class="q">Quel budget envisagez-vous pour la création du site&nbsp;? <span class="opt">(une estimation suffit)</span></span>
+      <div class="radios">
+        <label><input type="radio" name="budget" value="Moins de 2 000 CHF"> Moins de 2 000 CHF</label>
+        <label><input type="radio" name="budget" value="2 000 – 5 000 CHF"> 2 000 – 5 000 CHF</label>
+        <label><input type="radio" name="budget" value="5 000 – 10 000 CHF"> 5 000 – 10 000 CHF</label>
+        <label><input type="radio" name="budget" value="Plus de 10 000 CHF"> Plus de 10 000 CHF</label>
+        <label><input type="radio" name="budget" value="Je ne sais pas encore, à discuter ensemble"> Je ne sais pas encore, à discuter ensemble</label>
+      </div></div>
+  </section>
+
+  <section>
+    <h2>9. Informations pratiques</h2>
+    <div class="row">
+      <div class="field"><label class="q" for="launch">Date de lancement souhaitée</label>
+        <input type="date" id="launch" name="date_de_lancement"></div>
+    </div>
+    <div class="field"><label class="q" for="more">Autre chose à nous communiquer&nbsp;? <span class="opt">(facultatif)</span></label>
+      <textarea id="more" name="remarques"></textarea></div>
+  </section>
+
+  <button type="submit" id="send">Envoyer mes réponses</button>
+  <div class="msg" id="msg" role="status"></div>
+  <footer>Préparé par Kabani Consulting. Vos réponses sont utilisées uniquement pour créer votre site web.</footer>
+</form>
+</div>
+
+<script>
+  // Renseignez l'URL d'un service de formulaire (ex. https://formspree.io/f/xxxx) pour recevoir les réponses par e-mail.
+  // Tant qu'elle est vide, le formulaire reste en mode aperçu : il affiche les réponses à l'écran sans les envoyer.
+  const FORM_ENDPOINT = "https://formspree.io/f/mpppgdbo";
+  // Adresse du script Google Sheets (se termine par /exec). Vide = pas d'envoi vers Google Sheets.
+  const SHEET_ENDPOINT = "";
+
+  const form = document.getElementById("brief");
+  const msg = document.getElementById("msg");
+  const send = document.getElementById("send");
+
+  // Synchronise le sélecteur de couleur et le champ hexadécimal.
+  ["c1","c2","c3"].forEach(id => {
+    const picker = document.getElementById(id), text = document.getElementById(id + "t");
+    picker.addEventListener("input", () => { text.value = picker.value.toUpperCase(); });
+    text.addEventListener("input", () => { if (/^#[0-9a-f]{6}$/i.test(text.value)) picker.value = text.value; });
+  });
+
+  // N'affiche la question sur la recommandation que si elle est pertinente.
+  const refhow = document.getElementById("refhow");
+  form.querySelectorAll("[name=sur_recommandation]").forEach(r => r.addEventListener("change", () => {
+    refhow.hidden = form.sur_recommandation.value === "Non" || !form.sur_recommandation.value;
+  }));
+
+  // Jours d'ouverture : cliquer sur un jour affiche ses horaires (plusieurs plages possibles).
+  const DAYS = ["Lundi","Mardi","Mercredi","Jeudi","Vendredi","Samedi","Dimanche"];
+  const L = { from: "De", to: "à", add: "+ Ajouter une plage horaire", remove: "Retirer" };
+  const chipsBox = document.getElementById("daychips"), hoursBox = document.getElementById("hours");
+
+  function addSlot(slots, removable) {
+    const s = document.createElement("div");
+    s.className = "slot";
+    s.innerHTML = `<span>${L.from}</span><input type="time" value="09:00" class="t-from" aria-label="${L.from}"><span>${L.to}</span><input type="time" value="17:00" class="t-to">`;
+    if (removable) {
+      const rm = document.createElement("button");
+      rm.type = "button"; rm.className = "link rm"; rm.textContent = L.remove;
+      rm.onclick = () => s.remove();
+      s.appendChild(rm);
+    }
+    slots.appendChild(s);
+  }
+
+  DAYS.forEach(day => {
+    const chip = document.createElement("label");
+    chip.innerHTML = `<input type="checkbox" data-day="${day}"><span>${day}</span>`;
+    chipsBox.appendChild(chip);
+
+    const row = document.createElement("div");
+    row.className = "dayrow"; row.hidden = true; row.dataset.day = day;
+    row.innerHTML = `<strong>${day}</strong><div class="slots"></div>`;
+    const slots = row.querySelector(".slots");
+    addSlot(slots, false);
+    const add = document.createElement("button");
+    add.type = "button"; add.className = "link"; add.textContent = L.add;
+    add.onclick = () => addSlot(slots, true);
+    row.appendChild(add);
+    hoursBox.appendChild(row);
+
+    chip.querySelector("input").addEventListener("change", e => { row.hidden = !e.target.checked; });
+  });
+
+  function collectHours() {
+    return [...hoursBox.querySelectorAll(".dayrow:not([hidden])")].map(row => {
+      const times = [...row.querySelectorAll(".slot")]
+        .map(s => [s.querySelector(".t-from").value, s.querySelector(".t-to").value])
+        .filter(([a, b]) => a && b)
+        .map(([a, b]) => a + "–" + b);
+      return row.dataset.day + " " + (times.join(", ") || "horaires à préciser");
+    }).join(" ; ");
+  }
+
+  // Langues supplémentaires : liste déroulante avec recherche ; on peut en ajouter autant que voulu.
+  const ALL_LANGS = ["Afrikaans","Albanais","Allemand","Amharique","Arabe","Arménien","Azéri","Basque","Bengali","Biélorusse","Birman","Bosniaque","Bulgare","Catalan","Chinois (cantonais)","Chinois (mandarin)","Coréen","Croate","Danois","Espagnol","Estonien","Finnois","Galicien","Géorgien","Grec","Gujarati","Hébreu","Hindi","Hongrois","Indonésien","Irlandais","Islandais","Italien","Japonais","Kazakh","Khmer","Kinyarwanda","Kurde","Lao","Langue des signes","Letton","Lituanien","Luxembourgeois","Macédonien","Malais","Malayalam","Maltais","Marathi","Mongol","Néerlandais","Népalais","Norvégien","Ourdou","Ouzbek","Pachto","Persan (farsi)","Polonais","Portugais","Punjabi","Roumain","Russe","Serbe","Slovaque","Slovène","Somali","Suédois","Swahili","Tagalog (philippin)","Tamoul","Tchèque","Télougou","Thaï","Tibétain","Turc","Ukrainien","Vietnamien","Yoruba","Zoulou"];
+  const T = { addCustom: q => `Ajouter « ${q} »`, none: "Aucune langue trouvée", remove: l => "Retirer " + l };
+  const langBox = document.getElementById("langbox"), langSearch = document.getElementById("langsearch"),
+        langList = document.getElementById("langlist"), langTags = document.getElementById("langtags"),
+        langValue = document.getElementById("langvalue"), otherCb = document.getElementById("otherlang-cb");
+  let chosenLangs = [];
+  const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+  function renderLangTags() {
+    langTags.innerHTML = "";
+    chosenLangs.forEach(l => {
+      const t = document.createElement("span"); t.className = "tag"; t.textContent = l;
+      const x = document.createElement("button"); x.type = "button"; x.className = "link"; x.textContent = "×";
+      x.setAttribute("aria-label", T.remove(l));
+      x.onclick = () => { chosenLangs = chosenLangs.filter(c => c !== l); syncLangs(); showLangList(); };
+      t.appendChild(x); langTags.appendChild(t);
+    });
+  }
+  function syncLangs() {
+    langValue.value = chosenLangs.join(", ");
+    renderLangTags();
+    langValue.dispatchEvent(new Event("input", { bubbles: true }));
+  }
+  function addLang(l) {
+    l = l.trim();
+    if (l && !chosenLangs.some(c => norm(c) === norm(l))) chosenLangs.push(l);
+    langSearch.value = ""; syncLangs(); showLangList(); langSearch.focus();
+  }
+  function langMatches() {
+    const q = norm(langSearch.value.trim());
+    return ALL_LANGS.filter(l => !chosenLangs.includes(l) && norm(l).includes(q));
+  }
+  function showLangList() {
+    const items = langMatches(), q = langSearch.value.trim();
+    langList.innerHTML = "";
+    items.forEach(l => {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = l;
+      b.onmousedown = e => e.preventDefault(); b.onclick = () => addLang(l); langList.appendChild(b);
+    });
+    if (q && !items.length && !chosenLangs.some(c => norm(c) === norm(q))) {
+      const b = document.createElement("button"); b.type = "button"; b.textContent = T.addCustom(q);
+      b.onmousedown = e => e.preventDefault(); b.onclick = () => addLang(q); langList.appendChild(b);
+    }
+    if (!langList.children.length) { const p = document.createElement("div"); p.style.padding = "9px 12px"; p.textContent = T.none; langList.appendChild(p); }
+    langList.hidden = false;
+  }
+  langSearch.addEventListener("focus", showLangList);
+  langSearch.addEventListener("input", showLangList);
+  langSearch.addEventListener("blur", () => setTimeout(() => { langList.hidden = true; }, 150));
+  langSearch.addEventListener("keydown", e => {
+    if (e.key === "Escape") langList.hidden = true;
+    if (e.key === "Enter") { e.preventDefault(); const first = langMatches()[0]; if (first) addLang(first); else if (langSearch.value.trim()) addLang(langSearch.value); }
+  });
+  otherCb.addEventListener("change", () => {
+    langBox.hidden = !otherCb.checked;
+    if (!otherCb.checked) { chosenLangs = []; langSearch.value = ""; langList.hidden = true; syncLangs(); }
+  });
+  function restoreLangs() {
+    chosenLangs = langValue.value ? langValue.value.split(", ") : [];
+    renderLangTags();
+    langBox.hidden = !otherCb.checked;
+  }
+
+  // Cases « Autre » : affichent un champ texte pour préciser.
+  document.querySelectorAll(".other-toggle").forEach(cb => {
+    const t = document.getElementById(cb.dataset.target);
+    cb.addEventListener("change", () => {
+      t.hidden = !cb.checked;
+      if (cb.checked) t.focus();
+      else { t.value = ""; t.dispatchEvent(new Event("input", { bubbles: true })); }
+    });
+  });
+  function restoreOthers() {
+    document.querySelectorAll(".other-toggle").forEach(cb => { document.getElementById(cb.dataset.target).hidden = !cb.checked; });
+  }
+
+  // Boutons radio : un second clic sur l'option choisie la décoche.
+  function syncRadioState() {
+    form.querySelectorAll("input[type=radio]").forEach(r => { r.dataset.was = r.checked ? "1" : "0"; });
+  }
+  form.querySelectorAll("input[type=radio]").forEach(r => {
+    r.addEventListener("click", () => {
+      if (r.dataset.was === "1") {
+        r.checked = false; r.dataset.was = "0";
+        r.dispatchEvent(new Event("change", { bubbles: true }));
+      } else {
+        form.querySelectorAll(`input[type=radio][name="${r.name}"]`).forEach(o => { o.dataset.was = "0"; });
+        r.dataset.was = "1";
+      }
+    });
+  });
+  syncRadioState();
+
+  // Prestations à mettre en avant : choisies parmi les prestations cochées plus haut (3 au maximum).
+  const SERV_NAME = "prestations", TOP_NAME = "prestations_phares", MAX_TOP = 3;
+  const topBox = document.getElementById("topserv"), topHint = document.getElementById("topserv-hint");
+  function availableServices() {
+    const list = [...form.querySelectorAll(`input[name="${SERV_NAME}"]:checked`)].map(i => i.value);
+    (document.getElementById("otherserv").value || "").split(/[,;]/).map(s => s.trim()).filter(Boolean).forEach(s => {
+      if (!list.some(x => x.toLowerCase() === s.toLowerCase())) list.push(s);
+    });
+    return list;
+  }
+  function enforceTopMax() {
+    const boxes = [...topBox.querySelectorAll("input")], n = boxes.filter(b => b.checked).length;
+    boxes.forEach(b => { b.disabled = !b.checked && n >= MAX_TOP; });
+    topHint.textContent = boxes.length
+      ? `Choisissez-en ${MAX_TOP} au maximum (${n}/${MAX_TOP}).`
+      : "Cochez d'abord vos prestations ci-dessus : elles apparaîtront ici.";
+  }
+  function buildTop(selected) {
+    const keep = selected || [...topBox.querySelectorAll("input:checked")].map(i => i.value);
+    let count = 0;
+    topBox.innerHTML = "";
+    availableServices().forEach(s => {
+      const lab = document.createElement("label"), inp = document.createElement("input"), sp = document.createElement("span");
+      inp.type = "checkbox"; inp.name = TOP_NAME; inp.value = s;
+      if (keep.includes(s) && count < MAX_TOP) { inp.checked = true; count++; }
+      sp.textContent = s; lab.append(inp, sp); topBox.appendChild(lab);
+    });
+    enforceTopMax();
+  }
+  form.addEventListener("change", e => {
+    const t = e.target;
+    if (t.name === SERV_NAME || t.id === "otherserv") buildTop();
+    else if (t.name === TOP_NAME) enforceTopMax();
+  });
+  buildTop();
+
+  // Toutes les questions sont obligatoires, sauf la section 6 et quelques champs libres.
+  const OPTIONAL_IDS = ["avoid", "otherserv", "more", "c1t"]; // champs libres / préremplis laissés facultatifs
+  const V = {
+    group: "Sélectionnez au moins une option", text: "Champ obligatoire", lang: "Ajoutez au moins une langue",
+    noServ: "Cochez d'abord vos prestations plus haut", mail: "Adresse e-mail non valide",
+    fix: n => `Merci de compléter ${n > 1 ? "les " + n + " champs signalés" : "le champ signalé"} en rouge.`
+  };
+  const section6 = document.getElementById("refhow").closest("section");
+  function requiredFields() {
+    const optional = new Set(OPTIONAL_IDS.map(id => document.getElementById(id).closest(".field")));
+    return [...form.querySelectorAll("section")].filter(s => s !== section6)
+      .flatMap(s => [...s.querySelectorAll(".field")]).filter(f => !optional.has(f));
+  }
+  function clearErrors() {
+    form.querySelectorAll(".fielderr").forEach(e => e.remove());
+    form.querySelectorAll(".field-invalid").forEach(f => f.classList.remove("field-invalid"));
+    form.querySelectorAll(".invalid").forEach(e => e.classList.remove("invalid"));
+  }
+  function flag(field, text, inputs) {
+    field.classList.add("field-invalid");
+    (inputs || []).forEach(i => i.classList.add("invalid"));
+    const d = document.createElement("div"); d.className = "fielderr"; d.textContent = text; field.appendChild(d);
+  }
+  function validateAll() {
+    const problems = [];
+    requiredFields().forEach(field => {
+      const inputs = [...field.querySelectorAll("input,textarea")].filter(el => !el.hidden && !el.closest("[hidden]") && el.id !== "langsearch");
+      const checks = inputs.filter(el => el.type === "checkbox" || el.type === "radio");
+      const empties = inputs.filter(el => (["text", "email", "tel", "date"].includes(el.type) || el.tagName === "TEXTAREA") && !el.value.trim());
+      if (field.contains(topBox) && !topBox.querySelector("input:checked")) {
+        flag(field, topBox.children.length ? V.group : V.noServ); problems.push({ field });
+      } else if (checks.length && !checks.some(c => c.checked)) {
+        flag(field, V.group); problems.push({ field });
+      } else if (empties.length) {
+        flag(field, V.text, empties); problems.push({ field });
+      } else if (field.contains(otherCb) && otherCb.checked && !chosenLangs.length) {
+        flag(field, V.lang); problems.push({ field });
+      }
+    });
+    const mailEl = form.elements["email"], mail = mailEl.value.trim();
+    if (mail && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail) && !mailEl.classList.contains("invalid")) {
+      flag(mailEl.closest(".field"), V.mail, [mailEl]); problems.push({ field: mailEl.closest(".field") });
+    }
+    problems.sort((a, b) => (a.field.compareDocumentPosition(b.field) & 4) ? -1 : 1);
+    return problems;
+  }
+
+  function collect() {
+    const data = {};
+    new FormData(form).forEach((v, k) => {
+      if (k === "_gotcha" || v === "") return;
+      data[k] = data[k] ? data[k] + ", " + v : v;
+    });
+    const colors = ["c1t","c2t","c3t"].map(id => document.getElementById(id).value.trim()).filter(Boolean);
+    if (colors.length) data.couleurs_de_la_marque = colors.join(", ");
+    const hours = collectHours();
+    if (hours) data.horaires_d_ouverture = hours;
+    return data;
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    msg.className = "msg";
+    clearErrors();
+    const problems = validateAll();
+    if (problems.length) {
+      msg.className = "msg err";
+      msg.textContent = V.fix(problems.length);
+      const first = problems[0].field;
+      first.scrollIntoView({ block: "center" });
+      const f0 = first.querySelector("input:not([hidden]),textarea"); if (f0) f0.focus({ preventScroll: true });
+      return;
+    }
+    if (form._gotcha.value) return; // piège anti-spam
+    const data = collect();
+    // Les couleurs proposées par défaut ne comptent pas comme une réponse.
+    const answered = Object.keys(data).filter(k => !(k === "couleurs_de_la_marque" && data[k] === "#5B7B34, #C9601F, #F6EFE2"));
+    if (!answered.length) {
+      msg.className = "msg err";
+      msg.textContent = "Répondez à au moins une question avant d'envoyer.";
+      return;
+    }
+    // Objet de l'e-mail que vous recevrez (reconnu par Formspree via le champ _subject).
+    data._subject = (IS_TEST ? "[TEST] " : "") + "Questionnaire site web – " + data.prenom + " " + data.nom +
+      (data.nom_du_cabinet ? " (" + data.nom_du_cabinet + ")" : "") + (sentBefore ? " – mise à jour" : "");
+    if (IS_TEST) data.mode_test = "oui";
+    send.disabled = true;
+    if (!FORM_ENDPOINT) {
+      msg.className = "msg ok";
+      msg.innerHTML = "<strong>Mode aperçu :</strong> rien n'a été envoyé. Réponses recueillies :<pre></pre>";
+      msg.querySelector("pre").textContent = JSON.stringify(data, null, 2);
+      send.disabled = false;
+      return;
+    }
+    // Copie vers Google Sheets (en parallèle ; son échec n'empêche pas l'e-mail).
+    if (SHEET_ENDPOINT) {
+      fetch(SHEET_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) }).catch(() => {});
+    }
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error(res.status);
+      sentBefore = true;
+      save();
+      msg.className = "msg ok";
+      msg.textContent = "Merci ! Nous avons bien reçu vos réponses. Vous pouvez revenir sur ce lien à tout moment pour les modifier et les renvoyer.";
+    } catch (err) {
+      msg.className = "msg err";
+      msg.textContent = "Une erreur est survenue. Veuillez réessayer ou nous envoyer vos réponses par e-mail.";
+    }
+    send.disabled = false;
+  });
+
+  // Retire le signalement d'erreur dès que la personne corrige le champ.
+  ["input", "change"].forEach(ev => form.addEventListener(ev, e => {
+    const f = e.target.closest && e.target.closest(".field-invalid");
+    if (!f) return;
+    f.classList.remove("field-invalid");
+    f.querySelectorAll(".fielderr").forEach(x => x.remove());
+    f.querySelectorAll(".invalid").forEach(x => x.classList.remove("invalid"));
+  }));
+
+  // ---- Brouillon enregistré dans le navigateur de chaque personne ----
+  // Les réponses restent sur l'appareil de l'utilisateur ; deux personnes ne voient jamais les réponses de l'autre.
+  // Ajoutez ?test à l'adresse pour marquer les envois comme TEST (objet de l'e-mail préfixé par [TEST]).
+  const IS_TEST = new URLSearchParams(location.search).has("test");
+  const KEY = "kabani-brief-fr" + (IS_TEST ? "-test" : "");
+  let sentBefore = false;
+  const store = {
+    get() { try { return JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { return null; } },
+    set(v) { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch (e) {} },
+    del() { try { localStorage.removeItem(KEY); } catch (e) {} }
+  };
+
+  function snapshot() {
+    const values = {}, checked = [];
+    [...form.elements].forEach(el => {
+      if (!el.name || el.name === "_gotcha") return;
+      if (el.type === "checkbox" || el.type === "radio") { if (el.checked) checked.push([el.name, el.value]); }
+      else values[el.name] = el.value;
+    });
+    const colors = ["c1t", "c2t", "c3t"].map(id => document.getElementById(id).value);
+    const hours = {};
+    hoursBox.querySelectorAll(".dayrow:not([hidden])").forEach(row => {
+      hours[row.dataset.day] = [...row.querySelectorAll(".slot")].map(s => [s.querySelector(".t-from").value, s.querySelector(".t-to").value]);
+    });
+    return { values, checked, colors, hours };
+  }
+
+  function restore(st) {
+    Object.entries(st.values || {}).forEach(([n, v]) => { const el = form.elements[n]; if (el && "value" in el) el.value = v; });
+    const set = new Set((st.checked || []).map(([n, v]) => n + "\u0000" + v));
+    form.querySelectorAll("input[type=checkbox][name],input[type=radio][name]").forEach(el => { el.checked = set.has(el.name + "\u0000" + el.value); });
+    (st.colors || []).forEach((c, i) => {
+      const t = document.getElementById("c" + (i + 1) + "t"), p = document.getElementById("c" + (i + 1));
+      t.value = c; if (/^#[0-9a-f]{6}$/i.test(c)) p.value = c;
+    });
+    Object.entries(st.hours || {}).forEach(([day, slotList]) => {
+      const cb = chipsBox.querySelector(`[data-day="${day}"]`), row = hoursBox.querySelector(`.dayrow[data-day="${day}"]`);
+      if (!cb || !row) return;
+      cb.checked = true; row.hidden = false;
+      const slots = row.querySelector(".slots"); slots.innerHTML = "";
+      slotList.forEach(([a, b], i) => { addSlot(slots, i > 0); const s = slots.lastElementChild; s.querySelector(".t-from").value = a; s.querySelector(".t-to").value = b; });
+    });
+    refhow.hidden = !form.sur_recommandation.value || form.sur_recommandation.value === "Non";
+    restoreLangs();
+    restoreOthers();
+    buildTop((st.checked || []).filter(c => c[0] === TOP_NAME).map(c => c[1]));
+    syncRadioState();
+  }
+
+  function save() { store.set({ state: snapshot(), sent: sentBefore }); }
+  form.addEventListener("input", save);
+  form.addEventListener("change", save);
+  form.addEventListener("click", () => setTimeout(save, 0));
+
+  function banner(html, withReset) {
+    const d = document.createElement("div");
+    d.className = "msg ok"; d.style.marginBottom = "16px"; d.innerHTML = html;
+    if (withReset) {
+      const b = document.createElement("button");
+      b.type = "button"; b.className = "link"; b.textContent = "Recommencer à zéro";
+      b.onclick = () => { store.del(); location.reload(); };
+      d.appendChild(document.createElement("br")); d.appendChild(b);
+    }
+    form.parentNode.insertBefore(d, form);
+  }
+
+  if (IS_TEST) banner("<strong>Mode TEST :</strong> les envois seront marqués [TEST] dans l'objet de l'e-mail.", false);
+  const saved = store.get();
+  if (saved && saved.state) {
+    restore(saved.state);
+    sentBefore = !!saved.sent;
+    banner(sentBefore
+      ? "Vos réponses envoyées ont été retrouvées. Vous pouvez les modifier et les renvoyer."
+      : "Votre brouillon a été retrouvé. Reprenez là où vous vous étiez arrêté(e).", true);
+  }
+</script>
+</body>
+</html>
