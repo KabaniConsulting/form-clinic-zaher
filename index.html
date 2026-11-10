@@ -59,6 +59,12 @@
   .msg.ok{display:block;background:var(--accent-soft)}
   .msg.err{display:block;color:var(--err);border:1px solid var(--err)}
   .hp{position:absolute;left:-9999px}
+  dialog#thanks{border:0;border-radius:18px;padding:32px 26px 26px;max-width:min(440px,calc(100vw - 32px));width:100%;background:var(--card);color:var(--ink);text-align:center;box-shadow:0 24px 60px rgba(0,0,0,.28)}
+  dialog#thanks::backdrop{background:rgba(26,29,20,.55)}
+  dialog#thanks .tick{width:56px;height:56px;margin:0 auto 14px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+  dialog#thanks h2{margin:0 0 10px;color:var(--accent);font-size:1.35rem}
+  dialog#thanks p{margin:0 0 22px;color:var(--muted)}
+  dialog#thanks button{width:100%}
   pre{white-space:pre-wrap;word-break:break-word;font-size:.8rem;background:var(--bg);padding:10px;border-radius:8px;border:1px solid var(--line)}
   input[type=time]{width:auto;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
   .dayrow{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-top:10px;background:var(--bg)}
@@ -309,6 +315,12 @@
 
   <button type="submit" id="send">Envoyer mes réponses</button>
   <div class="msg" id="msg" role="status"></div>
+  <dialog id="thanks" aria-labelledby="thanks-title">
+    <div class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h2 id="thanks-title">Merci pour vos réponses !</h2>
+    <p>Nous les avons bien reçues et reviendrons vers vous très bientôt.<span id="thanks-mail" hidden> Un e-mail de confirmation vous a été envoyé.</span></p>
+    <button type="button" id="thanks-back" autofocus>Retour à mes réponses</button>
+  </dialog>
   <footer>Préparé par Kabani Consulting. Vos réponses sont utilisées uniquement pour créer votre site web.</footer>
 </form>
 </div>
@@ -623,6 +635,8 @@
       save();
       msg.className = "msg ok";
       msg.textContent = "Merci ! Nous avons bien reçu vos réponses. Vous pouvez revenir sur ce lien à tout moment pour les modifier et les renvoyer.";
+      const thanks = document.getElementById("thanks");
+      if (thanks && thanks.showModal && !thanks.open) thanks.showModal();
     } catch (err) {
       msg.className = "msg err";
       msg.textContent = "Une erreur est survenue. Veuillez réessayer ou nous envoyer vos réponses par e-mail.";
@@ -705,8 +719,31 @@
     form.parentNode.insertBefore(d, form);
   }
 
+  // Fenêtre de remerciement : « Retour à mes réponses » la ferme et ramène en haut du formulaire.
+  (function () {
+    const thanks = document.getElementById("thanks"), back = document.getElementById("thanks-back");
+    if (!thanks || !back) return;
+    const mailLine = document.getElementById("thanks-mail");
+    if (mailLine && SHEET_ENDPOINT) mailLine.hidden = false; // l'e-mail part via le script Google
+    back.addEventListener("click", () => { thanks.close(); window.scrollTo({ top: 0, behavior: "smooth" }); });
+    thanks.addEventListener("click", e => { if (e.target === thanks) thanks.close(); });
+  })();
+
+  // Liens de l'e-mail de confirmation : ?modifier (reprendre ses réponses) et ?recommencer (repartir de zéro).
+  const params = new URLSearchParams(location.search);
+  let cameToEdit = params.has("modifier");
+  if (params.has("recommencer")) store.del();
+  if (params.has("modifier") || params.has("recommencer")) {
+    params.delete("modifier"); params.delete("recommencer");
+    const qs = params.toString();
+    try { history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "")); } catch (e) {}
+  }
+
   if (IS_TEST) banner("<strong>Mode TEST :</strong> les envois seront marqués [TEST] dans l'objet de l'e-mail.", false);
   const saved = store.get();
+  if (cameToEdit && !(saved && saved.state)) {
+    banner("Nous n'avons pas retrouvé vos réponses sur cet appareil ou ce navigateur. Vous pouvez remplir le questionnaire à nouveau.", false);
+  }
   if (saved && saved.state) {
     restore(saved.state);
     sentBefore = !!saved.sent;
